@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="c" id="tbE-ky-U7p" customClass="FoodNutritionTableCellView">
+            <rect key="frame" x="0.0" y="0.0" width="968" height="143"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTN-5U-unB" userLabel="contentView">
+                    <rect key="frame" x="0.0" y="0.0" width="968" height="143"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKO-kY-QzD">
+                            <rect key="frame" x="0.0" y="0.0" width="968" height="143"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVi-Il-gMC">
+                                    <rect key="frame" x="899.33333333333337" y="59.000000000000007" width="53.666666666666629" height="25.333333333333336"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carbohydrates" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vk-TD-5r5">
+                                    <rect key="frame" x="10" y="61.333333333333336" width="130" height="20.333333333333336"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="130" id="vdG-DE-9fI"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="8vk-TD-5r5" firstAttribute="centerY" secondItem="hKO-kY-QzD" secondAttribute="centerY" id="0VN-4E-4Yn"/>
+                                <constraint firstItem="gVi-Il-gMC" firstAttribute="centerY" secondItem="hKO-kY-QzD" secondAttribute="centerY" id="3jW-4N-TBF"/>
+                                <constraint firstItem="8vk-TD-5r5" firstAttribute="leading" secondItem="hKO-kY-QzD" secondAttribute="leading" constant="10" id="JN6-FU-g0Y"/>
+                                <constraint firstAttribute="trailing" secondItem="gVi-Il-gMC" secondAttribute="trailing" constant="15" id="uCU-Fm-A9j"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="hKO-kY-QzD" secondAttribute="trailing" id="3py-bc-Dw0"/>
+                        <constraint firstItem="hKO-kY-QzD" firstAttribute="top" secondItem="cTN-5U-unB" secondAttribute="top" id="8DR-QC-xfZ"/>
+                        <constraint firstAttribute="bottom" secondItem="hKO-kY-QzD" secondAttribute="bottom" id="n4m-3V-S7c"/>
+                        <constraint firstItem="hKO-kY-QzD" firstAttribute="leading" secondItem="cTN-5U-unB" secondAttribute="leading" id="ygS-c4-32D"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="d00-vr-NwS"/>
+            <constraints>
+                <constraint firstItem="cTN-5U-unB" firstAttribute="top" secondItem="tbE-ky-U7p" secondAttribute="top" id="c9a-31-vr0"/>
+                <constraint firstItem="cTN-5U-unB" firstAttribute="leading" secondItem="tbE-ky-U7p" secondAttribute="leading" id="gNV-bh-4zh"/>
+                <constraint firstAttribute="bottom" secondItem="cTN-5U-unB" secondAttribute="bottom" id="gmO-H1-9lf"/>
+                <constraint firstAttribute="trailing" secondItem="cTN-5U-unB" secondAttribute="trailing" id="viq-bz-xHe"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="lbFoodInfoName" destination="8vk-TD-5r5" id="TxC-2C-RrA"/>
+                <outlet property="lbItemDetail" destination="gVi-Il-gMC" id="53B-Da-qkk"/>
+            </connections>
+            <point key="canvasLocation" x="-30.769230769230766" y="-13.86255924170616"/>
+        </view>
+    </objects>
+</document>
