@@ -29,12 +29,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-   
 
     [self.view setBackgroundColor:[UIColor whiteColor]];
 
 }
 -(void)viewWillAppear:(BOOL)animated{
+
     if(_FoodKey.count>0)
     {
         [self createView];
@@ -43,6 +43,7 @@
     }
 }
 - (void)createView{
+    
     [self createGraph];
 }
 
@@ -56,13 +57,20 @@
 }
 #pragma Mark CreatePieChart
 - (void)createPieChart{
-    PieChart *chart = [[PieChart alloc] initWithFrame:CGRectMake(0, header_height, WIDTH(self.view), (HEIGHT(self.view) - header_height)/2)];
-    [chart setDataSource:self];
-    [chart setDelegate:self];
-    [chart setLegendViewType:LegendTypeHorizontal];
-    [chart setShowCustomMarkerView:TRUE];
-    [chart drawPieChart];
-    [self.view addSubview:chart];
+    UIView *subviewToRemove = [self.view viewWithTag:123];
+    if(subviewToRemove != nil)
+    {
+        [subviewToRemove removeFromSuperview];
+    }
+   
+    _chart = [[PieChart alloc] initWithFrame:CGRectMake(0, header_height, WIDTH(self.view), (HEIGHT(self.view) - header_height)/2)];
+    _chart.tag = 123;
+    [_chart setDataSource:self];
+    [_chart setDelegate:self];
+    [_chart setLegendViewType:LegendTypeHorizontal];
+    [_chart setShowCustomMarkerView:TRUE];
+    [_chart drawPieChart];
+    [self.view addSubview:_chart];
 }
 
 #pragma mark PieChartDataSource
@@ -109,7 +117,6 @@
 
 #pragma mark PieChartDelegate
 - (void)didTapOnPieChartWithValue:(NSString *)value{
-    NSLog(@"Pie Chart: %@",value);
-}
+    NSLog(@"Pie Chart: %@",value);}
 
 @end

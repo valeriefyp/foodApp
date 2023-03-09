@@ -26,9 +26,7 @@
     _tfsearch.layer.cornerRadius = 10.0;
     _nutritionTitle.hidden = YES;
     _imgRecipe.hidden= YES;
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ReciptStepViewController" bundle:nil];
-    _ReciptStepNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"ReciptStepNavigationController"];
-    _mReciptStepViewController = _ReciptStepNavigationController.childViewControllers[0];
+
     //                //not full screen?
 //    _ReciptStepNavigationController.modalPresentationStyle = UIModalPresentationFullScreen;
     _embeddedVC = [self.storyboard instantiateViewControllerWithIdentifier:@"foodPie"];
@@ -100,6 +98,8 @@
     _nutritionTitle.text = [_tfsearch.text uppercaseString];
     _tbFoodDetail.hidden = YES;
     self->_embeddedVC.view.hidden = YES;
+   
+
     if(_targetFood.length > 0)
     {
         [_mFoodConnectionHandler getTargetFoodNutrition:_targetFood];
@@ -111,8 +111,12 @@
     
     if(success)
     {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ReciptStepViewController" bundle:nil];
+_ReciptStepNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"ReciptStepNavigationController"];
+_mReciptStepViewController = _ReciptStepNavigationController.childViewControllers[0];
         _mReciptStepViewController.finalStep = foodRecipe;
 
+        
         [self showDialog];
         
 
@@ -124,7 +128,7 @@
 -(void)showDialog{
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self presentViewController:_ReciptStepNavigationController animated:YES completion:nil];
+        [self presentViewController:self->_ReciptStepNavigationController animated:YES completion:nil];
     });
 
 }
@@ -213,10 +217,11 @@
     }
     - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         NSLog(@"%lu", (unsigned long)indexPath.row);
+
         NSDictionary *targetRecipeDetail = [_RecipeList objectAtIndex:indexPath.row];
         NSString *mRecipeId =  [targetRecipeDetail objectForKey:@"id"];
         [_mFoodConnectionHandler getRecipeDetail:mRecipeId];
-        
+      
     }
 
 @end
